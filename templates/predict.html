@@ -1,0 +1,253 @@
+{% extends 'layout.html' %}
+
+{% block title %}JERNIHin | Water Quality Prediction{% endblock %}
+
+{% block content %}
+
+<div class="tm-container tm-container-predict">
+
+    <div class="tm-predict">
+
+        <!-- Prediction Result -->
+        <div class="tm-predict-result">
+
+            {% if result == 5 %}
+            <p class="tm-predict-title">
+                Your Water Quality:
+                <span class="result green">Excellent</span>
+            </p>
+            <p class="tm-predict-desc">
+                You can safely drink this water.
+            </p>
+            {% endif %}
+
+            {% if result == 4 %}
+            <p class="tm-predict-title">
+                Your Water Quality:
+                <span class="result green">Good</span>
+            </p>
+            <p class="tm-predict-desc">
+                You can safely drink this water.
+            </p>
+            {% endif %}
+
+            {% if result == 3 %}
+            <p class="tm-predict-title">
+                Your Water Quality:
+                <span class="result orange">Moderate</span>
+            </p>
+            <p class="tm-predict-desc">
+                The water may be drinkable, but boiling it before consumption is recommended.
+            </p>
+            {% endif %}
+
+            {% if result == 2 %}
+            <p class="tm-predict-title">
+                Your Water Quality:
+                <span class="result orange">Poor</span>
+            </p>
+            <p class="tm-predict-desc">
+                The water requires purification and further quality testing.
+            </p>
+            {% endif %}
+
+            {% if result == 1 %}
+            <p class="tm-predict-title">
+                Your Water Quality:
+                <span class="result red">Very Poor</span>
+            </p>
+            <p class="tm-predict-desc">
+                This water is not recommended for drinking.
+            </p>
+            {% endif %}
+
+            {% if result %}
+            <a href="/predict" class="tm-btn btn-blue tm-mt-35">
+                Predict Again
+            </a>
+            {% endif %}
+
+        </div>
+
+        <!-- Close Button -->
+        <div class="tm-close">
+            <a href="/" class="tm-close-popup">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+
+        <!-- Prediction Form -->
+        <form id="contact-form" action="/result" method="POST">
+
+            <!-- Fecal & Oxygen -->
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="fecal"
+                            class="form-control"
+                            id="fecal"
+                            placeholder="WQI Fecal"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="fecal" class="form-label">
+                            WQI Fecal
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="oxygen"
+                            class="form-control"
+                            id="oxygen"
+                            placeholder="WQI Oxygen"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="oxygen" class="form-label">
+                            WQI Oxygen
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- pH & Total Sediment -->
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="ph"
+                            class="form-control"
+                            id="ph"
+                            placeholder="WQI pH"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="ph" class="form-label">
+                            WQI pH
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="tot_sediment"
+                            class="form-control"
+                            id="tot_sediment"
+                            placeholder="WQI Total Sediment"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="tot_sediment" class="form-label">
+                            WQI Total Sediment
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Temperature & Nitrogen -->
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="temp"
+                            class="form-control"
+                            id="temp"
+                            placeholder="WQI Temperature"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="temp" class="form-label">
+                            WQI Temperature
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="nitrogen"
+                            class="form-control"
+                            id="nitrogen"
+                            placeholder="WQI Nitrogen"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="nitrogen" class="form-label">
+                            WQI Nitrogen
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Phosphorus & Turbidity -->
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="phosphorus"
+                            class="form-control"
+                            id="phosphorus"
+                            placeholder="WQI Phosphorus"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="phosphorus" class="form-label">
+                            WQI Phosphorus
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input
+                            type="number"
+                            name="turbidity"
+                            class="form-control"
+                            id="turbidity"
+                            placeholder="WQI Turbidity"
+                            onkeypress="return isNumber(event)"
+                            required>
+                        <label for="turbidity" class="form-label">
+                            WQI Turbidity
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="form-group">
+
+                <button
+                    type="reset"
+                    class="tm-btn btn-red">
+                    Reset
+                </button>
+
+                <button
+                    type="submit"
+                    class="tm-btn btn-blue tm-ml-10">
+                    Predict
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,354 @@
+{% extends 'layout.html' %}
+
+{% block title %}JERNIHin | Water Quality Prediction{% endblock %}
+
+{% block content %}
+
+<!-- Video Banner -->
+<div id="tm-video-container">
+    <video autoplay muted loop id="tm-video">
+        <source src="{{ url_for('static', filename='video/ocean-sea-wave-video.mp4') }}" type="video/mp4">
+    </video>
+
+    <i id="tm-video-control-button" class="fas fa-pause"></i>
+</div>
+
+
+<!-- Navigation -->
+<div class="tm-container">
+
+    <nav class="tm-main-nav">
+
+        <ul id="inline-popups">
+
+            <!-- Introduction -->
+            <li class="tm-nav-item">
+
+                <a href="#intro"
+                   data-effect="mfp-move-from-top"
+                   class="tm-nav-link">
+
+                    Introduction
+
+                    <i class="fa fa-3x fa-info"></i>
+
+                </a>
+
+            </li>
+
+
+            <!-- Prediction -->
+            <li class="tm-nav-item">
+
+                <a href="#about"
+                   data-effect="mfp-move-from-top"
+                   class="tm-nav-link">
+
+                    Prediction
+
+                    <i class="fa fa-3x fa-tint"></i>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ========================= -->
+    <!-- INTRODUCTION -->
+    <!-- ========================= -->
+
+    <div id="intro"
+         class="popup mfp-with-anim mfp-hide tm-bg-gray">
+
+        <!-- Close Button -->
+        <div class="tm-close">
+
+            <a href="#" class="tm-close-popup">
+
+                <i class="fas fa-times"></i>
+
+            </a>
+
+        </div>
+
+
+        <!-- Introduction Content -->
+        <div class="tm-row tm-intro-row">
+
+
+            <!-- Image -->
+            <img src="{{ url_for('static', filename='img/intro.jpg') }}"
+                 alt="Water Quality"
+                 class="tm-intro-img">
+
+
+            <!-- Text -->
+            <div class="tm-col tm-bg-white tm-intro-pad">
+
+                <h2 class="tm-color-primary tm-page-title tm-mb-15">
+
+                    What is JERNIHin?
+
+                </h2>
+
+
+                <div class="tm-row tm-content-row">
+
+
+                    <!-- Left Column -->
+                    <div class="tm-col-6 tm-intro-col-l">
+
+                        <p>
+
+                            Safe and accessible water is essential for
+                            public health. It is used for drinking,
+                            household needs, food production, and
+                            recreational activities.
+
+                        </p>
+
+
+                        <p>
+
+                            The <i>Water Quality Index</i> (WQI) is an
+                            important measurement tool used to determine
+                            water quality. It combines several water
+                            quality parameters into a single index value.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Right Column -->
+                    <div class="tm-col-6 tm-intro-col-r">
+
+                        <p>
+
+                            We use Water Quality Index data to understand
+                            drinking water safety and apply
+                            <i>machine learning</i> to distinguish between
+                            safe and unsafe water.
+
+                        </p>
+
+
+                        <p>
+
+                            JERNIHin is a web-based application that
+                            predicts water quality and determines whether
+                            the water is suitable for consumption.
+
+                        </p>
+
+
+                        <div class="tm-text-center">
+
+                            <a href="#about"
+                               class="tm-btn btn-blue
+                                      mfp-prevent-close tm-btn-next">
+
+                                Try Prediction
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ========================= -->
+    <!-- WATER QUALITY INFORMATION -->
+    <!-- ========================= -->
+
+    <div id="about"
+         class="popup mfp-with-anim mfp-hide tm-bg-gray">
+
+
+        <!-- Close Button -->
+        <div class="tm-close">
+
+            <a href="#" class="tm-close-popup">
+
+                <i class="fas fa-times"></i>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- Page Title -->
+        <h2 class="tm-color-primary
+                   tm-about-col
+                   tm-mb-20
+                   tm-page-title">
+
+            What is <i>Water Quality Index</i>?
+
+        </h2>
+
+
+
+        <!-- Main Content -->
+        <div class="tm-row tm-about-row">
+
+
+            <!-- LEFT COLUMN -->
+            <div class="tm-col tm-about-col tm-about-left">
+
+
+                <img src="{{ url_for('static', filename='img/predict.jpg') }}"
+                     alt="Water Quality Prediction"
+                     class="tm-mb-15">
+
+
+                <p class="tm-mb-15
+                          tm-text-center
+                          tm-color-primary">
+
+                    <b>
+
+                        <i>
+                            "Save Water, Save Life"
+                        </i>
+
+                    </b>
+
+                </p>
+
+
+                <p class="tm-mb-15">
+
+                    The <i>Water Quality Index</i> (WQI) is a simple
+                    method used to evaluate water quality.
+
+                    Water quality can be influenced by natural processes
+                    as well as human activities.
+
+                    A higher index value generally indicates better
+                    water quality.
+
+                    This system evaluates water quality using eight
+                    important parameters:
+
+                    Fecal, pH, Temperature, Phosphorus, Oxygen,
+                    Total Sediment, Nitrogen, and Turbidity.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- RIGHT COLUMN -->
+            <div class="tm-col tm-about-col">
+
+
+                <p class="tm-mb-15
+                          tm-text-center
+                          tm-color-primary">
+
+                    <b>
+                        Importance of Water Quality Monitoring
+                    </b>
+
+                </p>
+
+
+
+                <ol class="tm-mb-15">
+
+
+                    <!-- Point 1 -->
+                    <li>
+
+                        <b>
+                            Essential for Human Life
+                        </b>
+
+
+                        <p>
+
+                            Water is one of the most basic necessities
+                            for human life.
+
+                            Maintaining good water quality is essential
+                            for health and daily activities.
+
+                            Physical, chemical, and biological parameters
+                            must be monitored according to appropriate
+                            standards.
+
+                        </p>
+
+                    </li>
+
+
+
+                    <!-- Point 2 -->
+                    <li>
+
+                        <b>
+                            Safe for Consumption
+                        </b>
+
+
+                        <p>
+
+                            Water suitable for consumption should meet
+                            appropriate physical, chemical, and biological
+                            quality requirements.
+
+                            These include parameters such as temperature,
+                            color, sedimentation, oxygen, pH, nutrients,
+                            bacteria, algae, and other biological factors.
+
+                        </p>
+
+                    </li>
+
+                </ol>
+
+
+
+                <p class="tm-mb-15">
+
+                    Check your water quality now!
+
+                </p>
+
+
+
+                <!-- Prediction Button -->
+                <a href="/predict"
+                   class="tm-btn btn-blue mfp-prevent-close">
+
+                    Predict Now!
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
